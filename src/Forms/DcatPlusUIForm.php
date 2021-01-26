@@ -32,5 +32,8 @@ class DcatPlusUIForm extends Form
             ->default(admin_setting('footer_remove'));
         $this->switch('header_blocks', Support::trans('main.header_blocks'))
             ->default(admin_setting('header_blocks'));
+        $this->switch('sidebar_indentation', Support::trans('main.sidebar_indentation'))
+            ->help('侧边菜单栏中的子菜单默认为1个空格缩进，开启后则为4个空格缩进。')
+            ->default(admin_setting('sidebar_indentation'));
     }
 }

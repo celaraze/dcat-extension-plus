@@ -4,6 +4,9 @@
 namespace Celaraze\DcatPlus;
 
 
+use Dcat\Admin\Admin;
+use Dcat\Admin\Support\Helper;
+
 class Support
 {
     /**
@@ -17,9 +20,18 @@ class Support
     }
 
     /**
+     * 返回菜单视图路径
+     * @return string
+     */
+    public static function menu_view(): string
+    {
+        return 'celaraze.dcat-extension-plus::menu';
+    }
+
+    /**
      * 初始化配置注入
      */
-    public static function initConfig()
+    public function initConfig()
     {
         /**
          * 处理站点LOGO自定义
@@ -50,15 +62,87 @@ class Support
             $site_url = admin_setting('site_url');
         }
 
+        if (empty(admin_setting('site_debug'))) {
+            $site_debug = false;
+        } else {
+            $site_debug = admin_setting('site_debug');
+        }
+
         /**
          * 复写admin站点配置
          */
         config([
             'app.url' => $site_url,
+            'app_debug' => $site_debug,
 
             'admin.title' => admin_setting('site_title'),
             'admin.logo' => $logo,
             'admin.logo-mini' => $logo_mini,
         ]);
+    }
+
+    /**
+     * 复写菜单栏
+     */
+    public function injectSidebar()
+    {
+        if (admin_setting('sidebar_indentation')) {
+            admin_inject_section(Admin::SECTION['LEFT_SIDEBAR_MENU'], function () {
+                $menuModel = config('admin.database.menu_model');
+
+                $builder = Admin::menu();
+
+                $html = '';
+                foreach (Helper::buildNestedArray((new $menuModel())->allNodes()) as $item) {
+                    $html .= view(self::menu_view(), ['item' => $item, 'builder' => $builder])->render();
+                }
+
+                return $html;
+            });
+        }
+    }
+
+    public function footerRemove()
+    {
+        if (admin_setting('footer_remove')) {
+            Admin::style(
+                <<<CSS
+.main-footer {
+    display: none;
+}
+CSS
+            );
+        }
+    }
+
+    public function headerBlocks()
+    {
+        if (admin_setting('header_blocks')) {
+            Admin::style(
+                <<<CSS
+.navbar {
+    margin: 0 35px 0 35px;
+    height: 70px;
+}
+
+.nav-link {
+    padding: 0;
+}
+
+.empty-data {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.font-grey {
+    color: white;
+}
+
+CSS
+            );
+        }
     }
 }
