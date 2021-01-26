@@ -1,0 +1,34 @@
+{
+    "name": "celaraze/dcat-extension-plus",
+    "description": "增强 DcatAdmin 的使用体验。",
+    "type": "library",
+    "keywords": [
+        "dcat-admin",
+        "extension"
+    ],
+    "homepage": "https://github.com/celaraze/dcat-extension-plus",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Celaraze",
+            "email": "celaraze@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "dcat/laravel-admin": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Celaraze\\DcatPlus\\": "src/"
+        }
+    },
+    "extra": {
+        "dcat-admin": "Celaraze\\DcatPlus\\ServiceProvider",
+        "laravel": {
+            "providers": [
+                "Celaraze\\DcatPlus\\ServiceProvider"
+            ]
+        }
+    }
+}
