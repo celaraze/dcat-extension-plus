@@ -2,7 +2,9 @@
 
 namespace Celaraze\DcatPlus;
 
-use Celaraze\DcatPlus\Http\Middleware\InjectDcatPlus;
+use Celaraze\DcatPlus\Http\Middleware\AfterInjectDcatPlus;
+use Celaraze\DcatPlus\Http\Middleware\BeforeInjectDcatPlus;
+use Celaraze\DcatPlus\Http\Middleware\MiddleInjectDcatPlus;
 use Dcat\Admin\Extend\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
@@ -14,8 +16,14 @@ class ServiceProvider extends BaseServiceProvider
         'css/index.css',
     ];
     protected $middleware = [
+        'before' => [
+            BeforeInjectDcatPlus::class
+        ],
         'middle' => [
-            InjectDcatPlus::class
+            MiddleInjectDcatPlus::class
+        ],
+        'after' => [
+            AfterInjectDcatPlus::class
         ]
     ];
     protected $menu = [

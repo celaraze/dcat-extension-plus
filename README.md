@@ -37,3 +37,15 @@
 头部块状显示
 
 侧栏缩进增大
+
+##### 扩展字段类型
+
+快速创建选项：表单可用 `selectCreate()` 字段类型，是 `select` 字段的增强，支持在右侧添加快速创建选项的按钮，异步添加值。
+
+```PHP
+$form->selectCreate('department','部门')
+    ->options(Department::class)
+    ->url('/departments/create')    // 异步打开的页面，这里是部门创建的页面url
+    ->ajax('/api/departments')      // 必须适用 api 方式取选项列表，格式同 select 字段的使用方法
+    ->required();
+```

@@ -4,7 +4,9 @@
 namespace Celaraze\DcatPlus;
 
 
+use Celaraze\DcatPlus\Extensions\Form\SelectCreate;
 use Dcat\Admin\Admin;
+use Dcat\Admin\Form;
 use Dcat\Admin\Support\Helper;
 
 class Support
@@ -17,15 +19,6 @@ class Support
     public static function trans($string)
     {
         return ServiceProvider::trans($string);
-    }
-
-    /**
-     * 返回菜单视图路径
-     * @return string
-     */
-    public static function menu_view(): string
-    {
-        return 'celaraze.dcat-extension-plus::menu';
     }
 
     /**
@@ -99,6 +92,22 @@ class Support
 
                 return $html;
             });
+        }
+    }
+
+    /**
+     * 返回菜单视图路径
+     * @return string
+     */
+    public static function menu_view(): string
+    {
+        return 'celaraze.dcat-extension-plus::menu';
+    }
+
+    public function injectFields()
+    {
+        if (admin_setting('field_select_create')) {
+            Form::extend('selectCreate', SelectCreate::class);
         }
     }
 

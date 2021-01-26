@@ -18,6 +18,7 @@ class DcatPlusUIController extends Controller
                 $tab = new Tab();
                 $tab->addLink('站点配置', route('dcat-plus.site.index'));
                 $tab->add('UI优化', new DcatPlusUIForm(), true);
+                $tab->addLink('扩展字段类型', route('dcat-plus.field.index'));
                 $row->column(12, $tab->withCard());
             });
     }
