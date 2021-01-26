@@ -45,15 +45,15 @@ class SelectCreate extends Select
 
     protected function build(): string
     {
-        Form::dialog('新建')
+        Form::dialog(Support::trans('main.select_create'))
             ->click('.create-form')
             ->url($this->url)
-            ->width('700px')
-            ->height('650px');
+            ->width('1200px')
+            ->height('800px');
 
         $text = Support::trans('main.select_create');
 
-        return "<span class='input-group-append btn btn-success create-form'> $text </span>";
+        return "<span class='btn btn-success create-form' data-url='$this->url'> $text </span>";
     }
 
     public function url($url): SelectCreate
