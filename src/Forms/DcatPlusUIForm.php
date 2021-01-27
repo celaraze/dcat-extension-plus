@@ -35,5 +35,19 @@ class DcatPlusUIForm extends Form
         $this->switch('sidebar_indentation', Support::trans('main.sidebar_indentation'))
             ->help('侧边菜单栏中的子菜单默认为1个空格缩进，开启后则为4个空格缩进。')
             ->default(admin_setting('sidebar_indentation'));
+        $this->radio('theme_color', Support::trans('main.theme_color'))
+            ->options([
+                'default' => '墨蓝',
+                'blue' => '蓝',
+                'blue-light' => '亮蓝',
+                'green' => '墨绿'
+            ])
+            ->default(admin_setting('theme_color'));
+        $this->radio('sidebar_style', Support::trans('main.sidebar_style'))
+            ->options([
+                'default' => '默认',
+                'sidebar-separate' => '菜单分离',
+            ])
+            ->default(admin_setting('sidebar_style'));
     }
 }

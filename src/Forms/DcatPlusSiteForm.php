@@ -47,5 +47,11 @@ class DcatPlusSiteForm extends Form
         $this->switch('site_debug', Support::trans('main.site_debug'))
             ->default(admin_setting('site_debug'))
             ->help('开启 debug 模式后将会显示异常捕获信息，关闭则只返回 500 状态码。');
+        $this->radio('site_lang', Support::trans('main.site_lang'))
+            ->options([
+                'zh_CN' => '中文（简体）',
+                'en' => 'English'
+            ])
+            ->default(admin_setting('site_lang'));
     }
 }

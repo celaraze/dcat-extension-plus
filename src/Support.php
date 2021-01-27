@@ -61,16 +61,31 @@ class Support
             $site_debug = admin_setting('site_debug');
         }
 
+        if (empty(admin_setting('theme_color'))) {
+            $theme_color = 'blue-light';
+        } else {
+            $theme_color = admin_setting('theme_color');
+        }
+        if (empty(admin_setting('sidebar_style'))) {
+            $sidebar_style = 'default';
+        } else {
+            $sidebar_style = admin_setting('sidebar_style');
+        }
+
         /**
          * 复写admin站点配置
          */
         config([
             'app.url' => $site_url,
-            'app_debug' => $site_debug,
+            'app.debug' => $site_debug,
+            'app.locale' => admin_setting('site_lang'),
+            'app.fallback_locale' => admin_setting('site_lang'),
 
             'admin.title' => admin_setting('site_title'),
             'admin.logo' => $logo,
             'admin.logo-mini' => $logo_mini,
+            'admin.layout.color' => $theme_color,
+            'admin.layout.body_class' => $sidebar_style
         ]);
     }
 
