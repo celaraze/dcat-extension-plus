@@ -45,7 +45,7 @@
 ```PHP
 $form->selectCreate('department','部门')
     ->options(Department::class)
-    ->url('/departments/create')    // 异步打开的页面，这里是部门创建的页面url
-    ->ajax('/api/departments')      // 必须适用 api 方式取选项列表，格式同 select 字段的使用方法
+    ->ajax('/api/departments')      // 必须使用 api 方式取选项列表，格式同 select 字段的使用方法
+    ->url('/departments/create')    // 异步打开的页面，这里是部门创建的页面 url
     ->required();
 ```
