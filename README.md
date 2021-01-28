@@ -14,33 +14,33 @@
 
 ### 使用
 
-在菜单 `扩展` 中启用扩展后，会自动添加名为 `站点配置` 的菜单。
+在菜单 `扩展` 中启用扩展后，会自动添加名为 `增强配置` 的菜单。
 
 ### 功能
 
-#### 站点配置
+- 站点标题
 
-站点标题
+- 站点 LOGO
 
-站点 LOGO
+- 站点微缩 LOGO
 
-站点微缩 LOGO
+- 站点静态资源 URL
 
-站点静态资源 URL
+- 调试模式
 
-调试模式
+- 语言切换
 
-#### UI优化
+- 移除底部授权
 
-移除底部授权
+- 头部块状显示
 
-头部块状显示
+- 侧栏缩进增大
 
-侧栏缩进增大
+- 主题色切换
 
-##### 扩展字段类型
+- 菜单样式切换
 
-快速创建选项：表单可用 `selectCreate()` 字段类型，是 `select` 字段的增强，支持在右侧添加快速创建选项的按钮，异步添加值。
+- 快速创建选项：表单可用 `selectCreate()` 字段类型，是 `select` 字段的增强，支持在右侧添加快速创建选项的按钮，异步添加值。
 
 ```PHP
 $form->selectCreate('department','部门')
@@ -49,3 +49,15 @@ $form->selectCreate('department','部门')
     ->url('/departments/create')    // 异步打开的页面，这里是部门创建的页面 url
     ->required();
 ```
+
+### 截图
+
+![dcat-plus-site](https://chemex.celaraze.com/dcat-plus/dcat-plus-site.png)
+
+![dcat-plus-ui](https://chemex.celaraze.com/dcat-plus/dcat-plus-ui.png)
+
+![dcat-plus-ui](https://chemex.celaraze.com/dcat-plus/dcat-plus-field.png)
+
+## 开源协议
+
+Dcat Plus 遵循 MIT 开源协议。
