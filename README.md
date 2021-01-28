@@ -50,7 +50,9 @@ $form->selectCreate('department','部门')
     ->required();
 ```
 
-### 截图
+![dcat-plus-site](https://chemex.celaraze.com/dcat-plus/select_create.png)
+
+### 增强配置截图
 
 ![dcat-plus-site](https://chemex.celaraze.com/dcat-plus/dcat-plus-site.png)
 
