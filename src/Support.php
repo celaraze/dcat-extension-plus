@@ -56,7 +56,7 @@ class Support
         }
 
         if (empty(admin_setting('site_debug'))) {
-            $site_debug = false;
+            $site_debug = true;
         } else {
             $site_debug = admin_setting('site_debug');
         }
