@@ -16,8 +16,8 @@ class DcatPlusFieldController extends Controller
             ->description('提供了一些对站点增强的配置')
             ->body(function (Row $row) {
                 $tab = new Tab();
-                $tab->addLink('站点配置', route('dcat-plus.site.index'));
-                $tab->addLink('UI优化', route('dcat-plus.ui.index'));
+                $tab->addLink('站点配置', admin_route('dcat-plus.site.index'));
+                $tab->addLink('UI优化', admin_route('dcat-plus.ui.index'));
                 $tab->add('扩展字段类型', new DcatPlusFieldForm(), true);
                 $row->column(12, $tab->withCard());
             });

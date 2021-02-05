@@ -1,6 +1,7 @@
 {
     "name": "celaraze/dcat-extension-plus",
     "description": "增强 DcatAdmin 的使用体验。",
+    "alias": "Dcat 增强工具",
     "type": "library",
     "keywords": [
         "dcat-admin",
