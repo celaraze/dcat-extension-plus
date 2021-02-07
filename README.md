@@ -6,7 +6,7 @@
 
 `composer require celaraze/dcat-extension-plus`
 
-> 注意，本扩展不支持本地上传安装。
+或者在后台扩展中，直接上传本插件的 `.zip` 文件即可。
 
 ### 使用
 

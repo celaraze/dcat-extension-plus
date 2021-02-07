@@ -5,7 +5,6 @@ namespace Celaraze\DcatPlus;
 use Celaraze\DcatPlus\Http\Middleware\AfterInjectDcatPlus;
 use Celaraze\DcatPlus\Http\Middleware\BeforeInjectDcatPlus;
 use Celaraze\DcatPlus\Http\Middleware\MiddleInjectDcatPlus;
-use Celaraze\DcatPlus\Http\Middleware\MiddleTransformsRequest;
 use Dcat\Admin\Extend\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
@@ -21,7 +20,6 @@ class ServiceProvider extends BaseServiceProvider
             BeforeInjectDcatPlus::class,
         ],
         'middle' => [
-            MiddleTransformsRequest::class,
             MiddleInjectDcatPlus::class,
         ],
         'after' => [
