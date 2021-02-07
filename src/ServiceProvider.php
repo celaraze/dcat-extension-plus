@@ -5,6 +5,7 @@ namespace Celaraze\DcatPlus;
 use Celaraze\DcatPlus\Http\Middleware\AfterInjectDcatPlus;
 use Celaraze\DcatPlus\Http\Middleware\BeforeInjectDcatPlus;
 use Celaraze\DcatPlus\Http\Middleware\MiddleInjectDcatPlus;
+use Celaraze\DcatPlus\Http\Middleware\MiddleTransformsRequest;
 use Dcat\Admin\Extend\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
@@ -17,18 +18,19 @@ class ServiceProvider extends BaseServiceProvider
     ];
     protected $middleware = [
         'before' => [
-            BeforeInjectDcatPlus::class
+            BeforeInjectDcatPlus::class,
         ],
         'middle' => [
-            MiddleInjectDcatPlus::class
+            MiddleTransformsRequest::class,
+            MiddleInjectDcatPlus::class,
         ],
         'after' => [
-            AfterInjectDcatPlus::class
+            AfterInjectDcatPlus::class,
         ]
     ];
     protected $menu = [
         [
-            'title' => 'Plus',
+            'title' => 'Dcat Plus',
             'uri' => 'dcat-plus/site',
             'icon' => 'feather icon-settings'
         ]
