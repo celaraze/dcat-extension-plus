@@ -53,7 +53,7 @@ class SelectCreate extends Select
 
         $text = Support::trans('main.select_create');
 
-        return "<span class='btn btn-success create-form' data-url='$this->url'> $text </span>";
+        return "<span class='btn btn-primary create-form' data-url='$this->url'> $text </span>";
     }
 
     public function url($url): SelectCreate

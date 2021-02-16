@@ -169,4 +169,19 @@ CSS
             );
         }
     }
+
+    public function gridRowActionsRight()
+    {
+        if (admin_setting('grid_row_actions_right')) {
+            Admin::style(
+                <<<CSS
+.grid__actions__{
+    width: 20%;
+    text-align: right;
+}
+CSS
+
+            );
+        }
+    }
 }

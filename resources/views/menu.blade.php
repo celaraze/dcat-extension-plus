@@ -1,7 +1,7 @@
 @php
     $active = $builder->isActive($item);
 
-    $depth = $item['depth'] ?? 0;
+    $depth = $item['depth'] ?? 0
 @endphp
 
 @if($builder->visible($item))
@@ -19,7 +19,7 @@
         </li>
     @else
         @php
-            $active = $builder->isActive($item);
+            $active = $builder->isActive($item)
         @endphp
 
         <li class="nav-item has-treeview {{ $active ? 'menu-open' : '' }}">
@@ -34,7 +34,7 @@
             <ul class="nav nav-treeview">
                 @foreach($item['children'] as $item)
                     @php
-                        $item['depth'] = $depth + 1;
+                        $item['depth'] = $depth + 1
                     @endphp
 
                     @include(\Celaraze\DcatPlus\Support::menu_view(), $item)

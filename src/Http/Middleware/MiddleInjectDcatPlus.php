@@ -13,7 +13,7 @@ class MiddleInjectDcatPlus
         $inputs = $request->all();
         $new_inputs = [];
         foreach ($inputs as $key => $input) {
-            if ($input != null) {
+            if ($input != null && !is_array($input)) {
                 $input = strip_tags($input);
             }
             $new_inputs[$key] = $input;
@@ -26,6 +26,7 @@ class MiddleInjectDcatPlus
         $support->injectFields();
         $support->footerRemove();
         $support->headerBlocks();
+        $support->gridRowActionsRight();
 
         return $next($request);
     }

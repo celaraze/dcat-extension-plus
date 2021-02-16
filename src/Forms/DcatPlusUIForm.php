@@ -49,5 +49,8 @@ class DcatPlusUIForm extends Form
                 'sidebar-separate' => '菜单分离',
             ])
             ->default(admin_setting('sidebar_style'));
+        $this->switch('grid_row_actions_right', Support::trans('main.grid_row_actions_right'))
+            ->help('启用后表格行操作按钮将永远贴着最右侧。')
+            ->default(admin_setting('grid_row_actions_right'));
     }
 }

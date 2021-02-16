@@ -7,6 +7,10 @@ use Celaraze\DcatPlus\Http\Middleware\BeforeInjectDcatPlus;
 use Celaraze\DcatPlus\Http\Middleware\MiddleInjectDcatPlus;
 use Dcat\Admin\Extend\ServiceProvider as BaseServiceProvider;
 
+/**
+ * Class ServiceProvider
+ * @package Celaraze\DcatPlus
+ */
 class ServiceProvider extends BaseServiceProvider
 {
     protected $js = [
