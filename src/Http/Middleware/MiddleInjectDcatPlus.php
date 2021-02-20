@@ -25,7 +25,7 @@ class MiddleInjectDcatPlus
         $support->injectSidebar();
         $support->injectFields();
         $support->footerRemove();
-        $support->headerBlocks();
+        $support->headerPaddingFix();
         $support->gridRowActionsRight();
 
         return $next($request);
