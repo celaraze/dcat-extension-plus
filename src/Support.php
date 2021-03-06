@@ -32,7 +32,7 @@ class Support
         if (empty(admin_setting('site_logo'))) {
             $logo = admin_setting('site_logo_text');
         } else {
-            $logo = config('app.url') . '/uploads/' . admin_setting('site_logo');
+            $logo = Storage::disk(config('admin.upload.disk'))->url(admin_setting('site_logo'));
             $logo = "<img src='$logo'>";
         }
 
@@ -42,7 +42,7 @@ class Support
         if (empty(admin_setting('site_logo_mini'))) {
             $logo_mini = admin_setting('site_logo_text');
         } else {
-            $logo_mini = config('app.url') . '/uploads/' . admin_setting('site_logo_mini');
+            $logo_mini = Storage::disk(config('admin.upload.disk'))->url(admin_setting('site_logo_mini'));
             $logo_mini = "<img src='$logo_mini'>";
         }
 
