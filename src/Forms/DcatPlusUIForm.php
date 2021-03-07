@@ -2,6 +2,7 @@
 
 namespace Celaraze\DcatPlus\Forms;
 
+use Celaraze\DcatPlus\ServiceProvider;
 use Celaraze\DcatPlus\Support;
 use Dcat\Admin\Widgets\Form;
 
@@ -32,18 +33,17 @@ class DcatPlusUIForm extends Form
             ->default(admin_setting('footer_remove'));
         $this->switch('header_padding_fix', Support::trans('main.header_padding_fix'))
             ->default(admin_setting('header_padding_fix'));
-//        $this->switch('sidebar_indentation', Support::trans('main.sidebar_indentation'))
-//            ->help('侧边菜单栏中的子菜单默认为1个空格缩进，开启后则为4个空格缩进。')
-//            ->default(admin_setting('sidebar_indentation'));
         $defaultColors = [
             'default' => '墨蓝',
             'blue' => '蓝',
             'blue-light' => '亮蓝',
             'green' => '墨绿',
         ];
-        foreach( explode(",", ServiceProvider::setting('additional_theme_colors')) as $value){
-            [$k , $v] = explode(":",$value);
-            $defaultColors[$k] = $v;
+        foreach (explode(",", ServiceProvider::setting('additional_theme_colors')) as $value) {
+            if (!empty($value)) {
+                [$k, $v] = explode(":", $value);
+                $defaultColors[$k] = $v;
+            }
         }
 
         $this->radio('theme_color', Support::trans('main.theme_color'))
