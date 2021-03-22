@@ -4,7 +4,6 @@
 namespace Celaraze\DcatPlus;
 
 
-use Celaraze\DcatPlus\Extensions\Form\SelectCreate;
 use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
 use Dcat\Admin\Support\Helper;
@@ -93,92 +92,6 @@ class Support
             'admin.layout.body_class' => $sidebar_style,
             'admin.layout.horizontal_menu' => $horizontal_menu
         ]);
-    }
-
-    /**
-     * 复写菜单栏
-     */
-    public function injectSidebar()
-    {
-        if (admin_setting('sidebar_indentation')) {
-            admin_inject_section(Admin::SECTION['LEFT_SIDEBAR_MENU'], function () {
-                $menuModel = config('admin.database.menu_model');
-
-                $builder = Admin::menu();
-
-                $html = '';
-                foreach (Helper::buildNestedArray((new $menuModel())->allNodes()) as $item) {
-                    $html .= view(self::menu_view(), ['item' => $item, 'builder' => $builder])->render();
-                }
-
-                return $html;
-            });
-        }
-    }
-
-    /**
-     * 返回菜单视图路径
-     * @return string
-     */
-    public static function menu_view(): string
-    {
-        return 'celaraze.dcat-extension-plus::menu';
-    }
-
-    public function injectFields()
-    {
-        if (admin_setting('field_select_create')) {
-            Form::extend('selectCreate', SelectCreate::class);
-        }
-    }
-
-    public function footerRemove()
-    {
-        if (admin_setting('footer_remove')) {
-            Admin::style(
-                <<<CSS
-.main-footer {
-    display: none;
-}
-CSS
-            );
-        }
-    }
-
-    public function headerPaddingFix()
-    {
-        if (admin_setting('header_padding_fix')) {
-            Admin::style(
-                <<<CSS
-.navbar{
-    margin: 0 35px !important;
-}
-
-.main-horizontal-sidebar{
-    box-sizing: border-box !important;
-    padding: 0 35px !important;
-    background-color: transparent !important;
-}
-
-.nav-link {
-    padding: 0;
-}
-
-.empty-data {
-    text-align: center;
-    color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-
-.font-grey {
-    color: white;
-}
-
-CSS
-            );
-        }
     }
 
     public function gridRowActionsRight()

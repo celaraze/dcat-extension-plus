@@ -47,7 +47,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         return new Setting($this);
     }
-    
+
     public function init()
     {
         parent::init();

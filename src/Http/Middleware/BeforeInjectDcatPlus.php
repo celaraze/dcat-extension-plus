@@ -2,7 +2,6 @@
 
 namespace Celaraze\DcatPlus\Http\Middleware;
 
-use Celaraze\DcatPlus\Support;
 use Closure;
 use Illuminate\Http\Request;
 

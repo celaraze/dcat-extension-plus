@@ -4,7 +4,7 @@
 
 ## 安装方式
 
-最新支持 Dcat Admin 2.0.18beta
+最新支持 Dcat Admin 2.0.20beta
 
 `composer require celaraze/dcat-extension-plus`
 
@@ -30,15 +30,11 @@
 
 - 移除底部授权
 
-- 头部边距优化
-
 - 主题色切换
 
 - 菜单样式切换（默认、分离、水平）
 
 - 表单行操作按钮固定最右
-
-- 表单提交内容自动预处理，有效防止 XSS 等攻击手段。
 
 - 快速创建选项：表单可用 `selectCreate()` 字段类型，是 `select` 字段的增强，支持在右侧添加快速创建选项的按钮，异步添加值。
 
@@ -49,16 +45,6 @@ $form->selectCreate('department','部门')
     ->url('/departments/create')    // 异步打开的页面，这里是部门创建的页面 url
     ->required();
 ```
-
-![dcat-plus-site](https://chemex.celaraze.com/dcat-plus/select_create.png)
-
-### 增强配置截图
-
-![dcat-plus-site](https://chemex.celaraze.com/dcat-plus/dcat-plus-site.png)
-
-![dcat-plus-ui](https://chemex.celaraze.com/dcat-plus/dcat-plus-ui.png)
-
-![dcat-plus-ui](https://chemex.celaraze.com/dcat-plus/dcat-plus-field.png)
 
 ## 开源协议
 

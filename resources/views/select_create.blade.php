@@ -24,7 +24,7 @@
                 @else
                     @foreach($options as $select => $option)
                         <option
-                            value="{{$select}}" {{ Dcat\Admin\Support\Helper::equal($select, $value) ?'selected':'' }}>{{$option}}</option>
+                                value="{{$select}}" {{ Dcat\Admin\Support\Helper::equal($select, $value) ?'selected':'' }}>{{$option}}</option>
                     @endforeach
                 @endif
             </select>
