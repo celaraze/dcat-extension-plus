@@ -46,6 +46,10 @@ $form->selectCreate('department','部门')
     ->required();
 ```
 
+- 表单详情扩展字段类型：`video`，视频，传入参数和 `image` 相同。
+
+`$show->field('name')->video()`
+
 ## 开源协议
 
 Dcat Plus 遵循 MIT 开源协议。

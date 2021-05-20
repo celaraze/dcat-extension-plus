@@ -5,8 +5,10 @@ namespace Celaraze\DcatPlus;
 
 
 use App\Admin\Extensions\Form\SelectCreate;
+use Celaraze\DcatPlus\Extensions\Show\Video;
 use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
+use Dcat\Admin\Show;
 use Illuminate\Support\Facades\Storage;
 
 class Support
@@ -100,6 +102,7 @@ class Support
     public function injectFields()
     {
         Form::extend('selectCreate', SelectCreate::class);
+        Show\Field::extend('video', Video::class);
     }
 
     /**
