@@ -31,8 +31,6 @@ class DcatPlusUIForm extends Form
     {
         $this->switch('footer_remove', Support::trans('main.footer_remove'))
             ->default(admin_setting('footer_remove'));
-        $this->switch('header_padding_fix', Support::trans('main.header_padding_fix'))
-            ->default(admin_setting('header_padding_fix'));
         $defaultColors = [
             'default' => '墨蓝',
             'blue' => '蓝',

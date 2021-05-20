@@ -4,9 +4,9 @@
 namespace Celaraze\DcatPlus;
 
 
+use App\Admin\Extensions\Form\SelectCreate;
 use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
-use Dcat\Admin\Support\Helper;
 use Illuminate\Support\Facades\Storage;
 
 class Support
@@ -81,7 +81,7 @@ class Support
          */
         config([
             'app.url' => $site_url,
-            'app.debug' => $site_debug,
+            'app.debug' => (bool)$site_debug,
             'app.locale' => admin_setting('site_lang'),
             'app.fallback_locale' => admin_setting('site_lang'),
 
@@ -94,6 +94,33 @@ class Support
         ]);
     }
 
+    /**
+     * 注入字段.
+     */
+    public function injectFields()
+    {
+        Form::extend('selectCreate', SelectCreate::class);
+    }
+
+    /**
+     * 底部授权移除.
+     */
+    public function footerRemove()
+    {
+        if (admin_setting('footer_remove')) {
+            Admin::style(
+                <<<'CSS'
+.main-footer {
+    display: none;
+}
+CSS
+            );
+        }
+    }
+
+    /**
+     * 行操作按钮最右.
+     */
     public function gridRowActionsRight()
     {
         if (admin_setting('grid_row_actions_right')) {
@@ -104,7 +131,6 @@ class Support
     text-align: right;
 }
 CSS
-
             );
         }
     }

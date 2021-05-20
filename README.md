@@ -4,7 +4,7 @@
 
 ## 安装方式
 
-最新支持 Dcat Admin 2.0.20beta
+最新支持 Dcat Admin 2.0.24beta
 
 `composer require celaraze/dcat-extension-plus`
 
